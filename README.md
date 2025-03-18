@@ -35,43 +35,61 @@ This project is a template for building real-time applications using Next.js (fr
 ## Project Structure
 ```
 next-node-socket-template/
-├── frontend/          # Next.js frontend
-│   ├── components/    # Reusable UI components
-│   ├── contexts/      # React contexts (includes GameContext for demo)
-│   ├── pages/         # Next.js pages
-│   ├── public/        # Static assets
-│   ├── styles/        # Global styles
-│   └── utils/         # Utility functions
+├── .next/                 # Next.js build output
+├── node_modules/          # Installed dependencies
+├── public/                # Static assets
 │
-├── backend/           # Node.js backend with Socket.io
-│   ├── controllers/   # Socket.io event handlers
-│   ├── server.ts      # Main server file
-│   └── utils/         # Utility functions
+├── server/                # Node.js backend with Socket.io
+│   ├── classes/           # Reusable class-based utilities
+│   ├── controllers/       # Socket.io event handlers
+│   ├── data/              # Sample data storage (if needed)
+│   ├── interfaces/        # TypeScript interfaces for backend
+│   ├── utils/             # Utility functions for the backend
+│   └── server.ts          # Main server file
 │
-├── app/               # Next.js App Router for APIs
-│   ├── api/           # API routes (CRUD operations)
+├── src/                   # Frontend (Next.js)
+│   ├── app/               # Next.js App Router (API + Pages)
+│   │   ├── api/           # API routes (CRUD operations)
+│   │   ├── game/          # Game-related frontend logic
+│   │   ├── room/          # Room management logic
+│   │   ├── favicon.ico    # Site favicon
+│   │   ├── globals.css    # Global styles
+│   │   ├── layout.tsx     # Root layout component
+│   │   ├── page.tsx       # Main page component
+│   │
+│   ├── components/        # Reusable UI components
+│   ├── contexts/          # React contexts (GameContext for demo)
+│   ├── interfaces/        # TypeScript interfaces for frontend
+│   ├── utils/             # Utility functions for frontend
 │
-├── .env               # Environment variables
-├── package.json       # Dependencies and scripts
-└── README.md          # Project documentation
+├── .gitignore             # Git ignore file
+├── eslint.config.mjs      # ESLint configuration
+├── next-env.d.ts          # TypeScript environment configuration
+├── next.config.ts         # Next.js configuration
+├── package-lock.json      # Dependency lock file
+├── package.json           # Project metadata and dependencies
+├── postcss.config.mjs     # PostCSS configuration
+├── README.md              # Project documentation
+├── tsconfig.json          # TypeScript configuration
+├── tsconfig.server.json   # TypeScript config for the server
 ```
 
 ## Frontend Details
 - A sample game is implemented using React and Next.js.
 - The `GameContext` provides shared state management for real-time interactions.
 - Users can join rooms and interact through Socket.io.
-- The UI can be modified easily by updating the components in `frontend/components/`.
+- The UI can be modified easily by updating the components in `src/components/`.
 
 ## Backend Details
 - `server.ts` initializes the Socket.io server and listens for events.
-- Controllers inside `backend/controllers/` handle different Socket.io events.
+- Controllers inside `server/controllers/` handle different Socket.io events.
 - Each event has its own dedicated controller function for modularity.
-- CRUD operations should be implemented using Next.js App Router in `app/api/`.
+- CRUD operations should be implemented using Next.js App Router in `src/app/api/`.
 
 ## Customization
 - The sample `GameContext` can be removed if not needed.
 - Unused libraries should be cleaned up to optimize performance.
-- Additional Socket.io event handlers can be added inside `backend/controllers/`.
+- Additional Socket.io event handlers can be added inside `server/controllers/`.
 - API routes can be built using Next.js' App Router for backend logic.
 
 ## Contributing
