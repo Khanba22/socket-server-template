@@ -21,7 +21,6 @@ This project is a template for building real-time applications using Next.js (fr
 1. Clone the repository:
    ```sh
    git clone https://github.com/your-repo/next-node-socket-template.git
-   cd next-node-socket-template
    ```
 2. Install dependencies:
    ```sh
