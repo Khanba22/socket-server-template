@@ -8,8 +8,6 @@
     "start": "NODE_ENV=production concurrently \"next start\" \"tsx server/server.ts\""
   },
   "dependencies": {
-    "@react-three/drei": "^10.0.4",
-    "@react-three/fiber": "^9.1.0",
     "concurrently": "^9.1.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
